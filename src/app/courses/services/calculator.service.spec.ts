@@ -26,13 +26,13 @@ describe("Calculator Service", () => {
     //OR To make it as singlton--dependency Injection..
     calService = TestBed.get(CalculatorService);
   });
-  fit("should add 2 numbers", () => {
+  it("should add 2 numbers", () => {
     const result = calService.add(1, 2);
     expect(result).toBe(3, "Some thing went wrong!!!");
     expect(loggerSpy.log).toHaveBeenCalledTimes(1); //checking how many times its calling
   });
 
-  fit("should subtract 2 numbers", () => {
+  it("should subtract 2 numbers", () => {
     const calService = new CalculatorService(new LoggerService());
     const result = calService.subtract(3, 2);
     expect(result).toBe(1, "Subtraction went wrong :(");
