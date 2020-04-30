@@ -28,7 +28,7 @@ describe("CoursesCardListComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  fit("should display the course list", () => {
+  it("should display the course list", () => {
     // setupCourses() is kind of mock. In real time, we can use these kind of mocks.
     component.courses = setupCourses();
     // After assigning something, we need to tell there are some changes done using detectChanges().
