@@ -22,7 +22,7 @@ describe("Course Service", () => {
     httpTestingController = TestBed.get(HttpTestingController);
   });
 
-  fit("should retrieve all courses", () => {
+  it("should retrieve all courses", () => {
     coursesServie.findAllCourses().subscribe((courses) => {
       expect(courses).toBeTruthy("No Courses returned."); //Error message when there are no courses
       expect(courses.length).toBe(12, "Incorrect Length");
@@ -39,7 +39,7 @@ describe("Course Service", () => {
     // httpTestingController.verify();
   });
 
-  fit("should find course by id", () => {
+  it("should find course by id", () => {
     coursesServie.findCourseById(12).subscribe((course) => {
       expect(course).toBeTruthy();
       expect(course.id).toBe(12);
@@ -50,7 +50,7 @@ describe("Course Service", () => {
     req.flush(COURSES[12]); //mockup
   });
 
-  fit("should save the course", () => {
+  it("should save the course", () => {
     const changes: Partial<Course> = {
       titles: { description: "Testing New Angular" },
     };
@@ -68,7 +68,7 @@ describe("Course Service", () => {
     req.flush({ ...COURSES[12], ...changes });
   });
 
-  fit("should return error when save course fails", () => {
+  it("should return error when save course fails", () => {
     const changes: Partial<Course> = {
       titles: { description: "Testing New Angular" },
     };
@@ -87,7 +87,7 @@ describe("Course Service", () => {
     });
   });
 
-  fit("should list of lessons", () => {
+  it("should list of lessons", () => {
     coursesServie.findLessons(12).subscribe((lessons) => {
       expect(lessons).toBeTruthy();
       expect(lessons.length).toBe(3);
